@@ -151,7 +151,7 @@ h1 {
     .claim-btn { font-size: 2.2rem; padding: 20px 60px; }
 }
 
-/* Fake popup styling */
+
 #fakePopupContainer {
     position: fixed;
     bottom: 20px;
@@ -202,7 +202,7 @@ h1 {
             WAIT...
         </div>
 
-        <!-- Fake username step appears after claim button is clicked -->
+
         <div class="username-section" id="usernameSection">
             <div style="font-size: 2rem; color: #ffeb3b; margin: 20px 0;">
                 Enter your Fortnite username
@@ -218,11 +218,10 @@ h1 {
     </div>
 </div>
 
-<!-- Fake claim notifications container -->
 <div id="fakePopupContainer"></div>
 
 <script>
-// ── Countdown + percentage logic ──
+
 let seconds = 5 * 60;
 let percent = Math.floor(Math.random() * 6) + 3;
 const timerEl = document.getElementById('timer');
@@ -266,16 +265,14 @@ function updateTimer() {
     percentEl.textContent = Math.floor(percent);
 }
 
-// Show username input when claim button is clicked
 claimBtn.addEventListener('click', () => {
     if (!claimBtn.classList.contains('locked')) {
-        claimBtn.style.display = 'none'; // hide the claim button
+        claimBtn.style.display = 'none'; 
         usernameSection.style.display = 'block';
         fakeMsg.style.display = 'none';
     }
 });
 
-// Fake "verifying" on submit
 verifyBtn.addEventListener('click', () => {
     const input = document.getElementById('usernameInput').value.trim();
     if (input.length < 3) {
@@ -289,14 +286,12 @@ verifyBtn.addEventListener('click', () => {
     fakeMsg.style.color = "#00ff41";
     fakeMsg.style.display = 'block';
     
-    // Fake delay then loop back or show error
     setTimeout(() => {
         fakeMsg.textContent = "Verification failed – please try again later";
         fakeMsg.style.color = "#ff4444";
         
-        // Optional: after another delay, reset to countdown (full loop)
         setTimeout(() => {
-            location.reload(); // or redirect to same page
+            location.reload(); 
         }, 4000);
     }, 3500 + Math.random() * 3000);
 });
@@ -304,7 +299,6 @@ verifyBtn.addEventListener('click', () => {
 setInterval(updateTimer, 1000);
 updateTimer();
 
-// ── Dynamic slots decreasing ──
 let slots = 183;
 const slotsWarning = document.getElementById('slotsWarning');
 
@@ -316,7 +310,6 @@ setInterval(() => {
     }
 }, 10000 + Math.random() * 18000);
 
-// ── Fake claim popups ──
 const users = [
     {name:"xDutchSniper", flag:"🇳🇱", country:"Netherlands"},
     {name:"DerAimBot", flag:"🇩🇪", country:"Germany"},
