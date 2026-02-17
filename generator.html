@@ -233,6 +233,22 @@ retryBtn.onclick = () => {
   // or full url: "https://yoursite.com/fortnite-cheats.html"
 };
 </script>
+<script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(function(registration) {
+                console.log('Monetag SW registered successfully. Scope:', registration.scope);
+            })
+            .catch(function(error) {
+                console.error('Monetag SW registration failed:', error);
+            });
+    });
+}
+</script>
 
+<!-- Monetag main push script (the one they gave you for push/in-page) -->
+<script async src="https://jsn.monetag.com/YOUR_PUSH_KEY_HERE.js"></script>
+<!-- ^^^ Replace YOUR_PUSH_KEY_HERE with the actual key from Monetag dashboard if they gave a separate script tag -->
 </body>
 </html>
