@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHEAT GENERATOR • FORTNITE 2026</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0a0a0a;
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .side-ad {
+      position: fixed;
+      top: 120px;
+      width: 160px;
+      height: 600px;
+      background: #111;
+      border: 2px solid #444;
+      color: #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      z-index: 100;
+      text-align: center;
+    }
+    .left-ad  { left: 10px; }
+    .right-ad { right: 10px; }
+
+    header {
+      text-align: center;
+      padding: 35px 10px 20px;
+      background: linear-gradient(to bottom, #ff0000, #aa0000);
+    }
+    h1 {
+      margin: 0;
+      font-size: 3.4rem;
+      color: #fff200;
+      text-shadow: 0 0 20px #ff4444;
+    }
+    .subtitle {
+      font-size: 1.7rem;
+      color: #ffeb3b;
+      margin-top: 8px;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .generator-box {
+      background: #1a1a1a;
+      border: 4px solid #ff4444;
+      border-radius: 15px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(255,68,68,0.5);
+    }
+
+    .status {
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin: 20px 0 30px;
+      min-height: 3rem;
+      color: #00ff41;
+      text-shadow: 0 0 15px #00ff4180;
+    }
+
+    .progress-outer {
+      height: 34px;
+      background: #111;
+      border: 3px solid #444;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 20px 0 35px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, #00ff41, #00cc33);
+      transition: width 0.5s ease-out;
+      box-shadow: 0 0 25px #00ff41;
+    }
+
+    .percent {
+      font-size: 5.2rem;
+      font-weight: bold;
+      color: #00ff41;
+      text-shadow: 0 0 30px #00ff4180;
+      margin: 15px 0 40px;
+    }
+
+    .failed {
+      color: #ff4444 !important;
+      text-shadow: 0 0 25px #ff4444aa;
+      animation: flash 1.6s infinite;
+    }
+
+    @keyframes flash {
+      0%,100% { opacity: 1; }
+      50%     { opacity: 0.35; }
+    }
+
+    .retry {
+      display: none;
+      margin: 30px auto;
+      padding: 20px 70px;
+      font-size: 2.1rem;
+      font-weight: bold;
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 0 30px #ff4444;
+    }
+
+    .retry:hover {
+      transform: scale(1.06);
+    }
+
+    .info {
+      color: #ff9800;
+      font-size: 1.3rem;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 900px) {
+      .side-ad { display: none; }
+      h1 { font-size: 2.6rem; }
+      .status { font-size: 2rem; }
+      .percent { font-size: 4.2rem; }
+      .retry { font-size: 1.8rem; padding: 16px 50px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="side-ad left-ad">AD SLOT 160×600<br>REPLACE WITH REAL CODE</div>
+<div class="side-ad right-ad">AD SLOT 160×600<br>REPLACE WITH REAL CODE</div>
+
+<header>
+  <h1>FREE FORTNITE CHEATS</h1>
+  <div class="subtitle">GENERATING UNDETECTED PACKAGE...</div>
+</header>
+
+<div class="container">
+  <div class="generator-box">
+    <div class="status" id="status">Preparing cheats</div>
+
+    <div class="progress-outer">
+      <div class="progress-bar" id="bar"></div>
+    </div>
+
+    <div class="percent" id="percent">0%</div>
+
+    <button class="retry" id="retryBtn">TRY AGAIN</button>
+
+    <div class="info">
+      This process usually takes 30–90 seconds.<br>
+      Please do not close or refresh this page.
+    </div>
+  </div>
+</div>
+
+<script>
+const statusEl  = document.getElementById('status');
+const percentEl = document.getElementById('percent');
+const barEl     = document.getElementById('bar');
+const retryBtn  = document.getElementById('retryBtn');
+
+const stages = [
+  "Preparing cheats",
+  "Modifying game files",
+  "Compiling the cheat",
+  "Injecting bypasses",
+  "Verifying with anticheat"
+];
+
+let progress = 0;
+let stageIdx = 0;
+let failed = false;
+
+function update() {
+  if (failed) return;
+
+  // jagged progress (slows near end)
+  progress += Math.random() * 3.2 + 0.3; // ~0.3–3.5% per tick
+
+  // slow down dramatically near 99%
+  if (progress > 94) {
+    progress += Math.random() * 0.6 + 0.1;
+  }
+
+  let current = Math.min(99.8, Math.floor(progress));
+  percentEl.textContent = current + "%";
+  barEl.style.width = current + "%";
+
+  // stage changes
+  if (progress >  22 && stageIdx === 0) { stageIdx=1; statusEl.textContent = stages[1]; }
+  if (progress >  48 && stageIdx === 1) { stageIdx=2; statusEl.textContent = stages[2]; }
+  if (progress >  73 && stageIdx === 2) { stageIdx=3; statusEl.textContent = stages[3]; }
+  if (progress >  91 && stageIdx === 3) { stageIdx=4; statusEl.textContent = stages[4]; }
+
+  if (progress >= 99.4 && !failed) {
+    setTimeout(() => {
+      failed = true;
+      statusEl.textContent = "Failed to verify with the game's anticheat";
+      statusEl.classList.add('failed');
+      percentEl.textContent = "99%";
+      percentEl.classList.add('failed');
+      barEl.style.background = "linear-gradient(to right, #ff4444, #cc0000)";
+      barEl.style.boxShadow = "0 0 25px #ff4444";
+      retryBtn.style.display = "block";
+    }, 1800); // dramatic pause before fail message
+  }
+}
+
+setInterval(update, 420);   // roughly 18–40 seconds to fail
+
+// Redirect back to first page (change filename if needed)
+retryBtn.onclick = () => {
+  window.location.href = "index.html";   // ← name of your first file
+  // or: window.location.href = "/";
+  // or full url: "https://yoursite.com/fortnite-cheats.html"
+};
+</script>
+
+</body>
+</html>
